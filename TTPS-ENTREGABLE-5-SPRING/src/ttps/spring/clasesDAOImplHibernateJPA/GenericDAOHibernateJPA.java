@@ -1,8 +1,8 @@
-package ttps.clasesDAOImplHibernateJPA;
+package ttps.spring.clasesDAOImplHibernateJPA;
 
 import java.io.Serializable;
 
-import ttps.clasesDAO.GenericDAO;
+import ttps.spring.clasesDAO.GenericDAO;
 
 public class GenericDAOHibernateJPA <T> implements GenericDAO<T>{
 

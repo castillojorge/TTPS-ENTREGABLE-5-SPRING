@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class PersistenceConfig {
 
-	private static final String MODEL_PACKAGE = "ttps.spring.model";
+	private static final String MODEL_PACKAGE = "ttps.spring.model2019";
 	
 	@Bean 
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -37,8 +37,8 @@ public class PersistenceConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setUsername("root");
-		driverManagerDataSource.setPassword("root");
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/mibd");
+		driverManagerDataSource.setPassword("CursoSql1234");
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/historiaclinicamascota?serverTimezone=UTC");
 		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return driverManagerDataSource;
 	}
@@ -55,7 +55,7 @@ public class PersistenceConfig {
 		Properties properties = new Properties();		
 		properties.setProperty("hibernate.hbm2ddl.auto", "create");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-		properties.setProperty("hibernate.default_schema", "mibd");
+		properties.setProperty("hibernate.default_schema", "historiaclinicamascota");
 		return properties;
 	}
 		
