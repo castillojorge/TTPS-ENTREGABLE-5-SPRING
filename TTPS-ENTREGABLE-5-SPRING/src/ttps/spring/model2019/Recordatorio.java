@@ -11,7 +11,7 @@ public class Recordatorio implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	@Column
 	private int id_recordatorio;
 	
