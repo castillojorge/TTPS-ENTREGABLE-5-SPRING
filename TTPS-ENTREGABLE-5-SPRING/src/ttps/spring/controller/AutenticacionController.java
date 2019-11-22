@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javafx.util.Pair;
 import ttps.spring.model2019.Usuario;
 import ttps.spring.service.AutenticacionService;
 
@@ -24,14 +25,15 @@ public class AutenticacionController {
 	AutenticacionService autenticacionService;
 	
 	@GetMapping(params = {"email", "pass"})
-	public ResponseEntity<String> login(@RequestParam("email") String email,@RequestParam("pass") String pass ){
+	public ResponseEntity<Pair> login(@RequestParam("email") String email,@RequestParam("pass") String pass ){
 		Usuario u = autenticacionService.login(email, pass) ;
 		if(u != null) {
 			//Preguntar Como Armar este token
 			String token = String.valueOf(u.getId_user())+"123456";
-			return new ResponseEntity<String>(token,HttpStatus.OK);
+			Pair pair = new Pair("token",token);
+			return new ResponseEntity<Pair>(pair,HttpStatus.OK);
 		}
-		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<Pair>(HttpStatus.FORBIDDEN);
 	}
 	
 }
