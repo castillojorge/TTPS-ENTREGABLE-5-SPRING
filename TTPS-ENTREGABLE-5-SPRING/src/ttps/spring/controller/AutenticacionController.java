@@ -20,24 +20,18 @@ import ttps.spring.service.AutenticacionService;
 @RequestMapping( "/login") //, produces = MediaType.APPLICATION_JSON_VALUE)
 public class AutenticacionController {
 	
-	//@Autowired
-	//AutenticacionService authService;
+	@Autowired
+	AutenticacionService autenticacionService;
 	
-	//@RequestMapping(value ="/login", params = {"email", "pass"}, method = {RequestMethod.POST})
-	@GetMapping
-	//public ResponseEntity<String> login(@RequestParam("email") String email,@RequestParam("pass") String pass ){
-	public List<String> login(){
-		System.out.println("entro");
-		List <String> l = new ArrayList();
-		l.add("aadd");
-		l.add("eee");
-		return l;
-		//return new ResponseEntity<String>(HttpStatus.OK);
-		/*if(authService.login(email, pass) != null) {
-			System.out.println("Error de Logueo");
-			return new ResponseEntity<Usuario>(HttpStatus.OK);
+	@GetMapping(params = {"email", "pass"})
+	public ResponseEntity<String> login(@RequestParam("email") String email,@RequestParam("pass") String pass ){
+		Usuario u = autenticacionService.login(email, pass) ;
+		if(u != null) {
+			//Preguntar Como Armar este token
+			String token = String.valueOf(u.getId_user())+"123456";
+			return new ResponseEntity<String>(token,HttpStatus.OK);
 		}
-		return new ResponseEntity<Usuario>(HttpStatus.OK);*/
+		return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 	}
 	
 }

@@ -54,7 +54,7 @@ public class UsuarioDAOHibernateJPA extends GenericDAOHibernateJPA<Usuario> impl
 			q.setParameter("email", email);
 			q.setParameter("pass", password);
 			List<Usuario> usuario = q.getResultList();
-			if(usuario.get(0).getPassword() == password) {
+			if(usuario.get(0).getPassword().equals(password)) {
 				return usuario.get(0);
 			}
 			return null;
