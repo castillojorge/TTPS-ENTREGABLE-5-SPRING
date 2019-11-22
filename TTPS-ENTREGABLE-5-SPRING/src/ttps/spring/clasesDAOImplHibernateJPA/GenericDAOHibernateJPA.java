@@ -25,6 +25,7 @@ public class GenericDAOHibernateJPA <T> implements GenericDAO<T>{
 	}
 	
 	protected Class<T> persistentClass;
+	
 	public GenericDAOHibernateJPA(Class<T> persistentClass) {
 		this.persistentClass = persistentClass;
 	}
