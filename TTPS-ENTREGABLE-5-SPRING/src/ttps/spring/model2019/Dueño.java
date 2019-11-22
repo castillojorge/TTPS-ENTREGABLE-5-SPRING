@@ -1,11 +1,13 @@
 package ttps.spring.model2019;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,8 +45,8 @@ public class Dueño implements Serializable{
     @JoinColumn(name = "id_ficha_publica")
 	private FichaPublica fpublica;
 	
-	@OneToMany(mappedBy = "miDueño" , cascade = CascadeType.ALL)
-	private List<Mascota> mascotas;
+	@OneToMany(mappedBy = "miDueño" , cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Mascota> mascotas = new ArrayList<Mascota>();
 	
 	public Dueño() {
 		

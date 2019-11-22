@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Mascota")
 public class Mascota implements Serializable {
@@ -42,6 +44,7 @@ public class Mascota implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_dueño")
+	@JsonIgnore
 	private Dueño miDueño;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -49,9 +52,11 @@ public class Mascota implements Serializable {
 	private Veterinario miVeterinario;
 	
 	@OneToMany(mappedBy = "aMascota" , cascade = {CascadeType.ALL})
+	@JsonIgnore
 	private List<Recordatorio> misRecordatorios;
 	
 	@OneToMany(mappedBy = "aMascota", cascade = {CascadeType.ALL})
+	@JsonIgnore
 	private List<Evento> misEventos;
 	
 	public Mascota() {

@@ -18,7 +18,7 @@ import ttps.spring.model2019.Usuario;
 import ttps.spring.service.AutenticacionService;
 
 @RestController
-@RequestMapping( "/login") //, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping( value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AutenticacionController {
 	
 	@Autowired
