@@ -10,7 +10,7 @@ public class FichaPublica implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	@Column(name="id_ficha_publica")
 	private int id_ficha_publica;
 	

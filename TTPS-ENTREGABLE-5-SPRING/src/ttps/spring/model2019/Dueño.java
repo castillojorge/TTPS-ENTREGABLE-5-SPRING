@@ -25,7 +25,7 @@ public class Dueño implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	@Column(name="id_dueño")
 	private int id_dueño;
 	
